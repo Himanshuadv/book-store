@@ -4,8 +4,9 @@ import spinner from "../components/Spinner";
 import axios from "axios";
 import BackButton from "../components/BackButton";
 import { useSnackbar } from "notistack";
+import { MdDescription } from "react-icons/md";
 
-function CreateBook() {
+function CreateBook({setShowModel}) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [publishYear, setPublishYear] = useState('');
@@ -35,42 +36,63 @@ function CreateBook() {
   };
   return (
     <div>
-      <BackButton />
-     
+
+
       {loading ? <spinner /> : ""}
-      <div className="flex flex-col  border-2 border-sky-400 rounded-xl w-[600px] p-4 my-10 mx-auto">
-      <h1 className="text-3xl my-4">Create Book</h1>
-        <div className="my-4">
-          <label className="text-xl text-gray-500 mr-4">Title</label>
+      <div className="flex flex-col  border-2 border-sky-400 rounded-xl w-[90%] p-4 my-10 mx-auto bg-gray-400 opacity-90">
+        <div className="flex items-center">
+          <BackButton setShowModel={setShowModel}/>
+          <h1 className="text-xl font-semibold mx-4">Create Book</h1>
+        </div>
+
+        <div className="my-3">
+          <label className="text-xl text-black mx-2">Title</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-[3px] w-full rounded-xl text-lg focus:border-sky-500 focus:border-2"
+            placeholder="Title"
           />
         </div>
 
-        <div className="my-4">
-          <label className="text-xl text-gray-500 mr-4">Author</label>
+        <div className="my-3">
+          <label className="text-xl text-black mx-2">Author</label>
           <input
             type="text"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-2xl text-xl"
+            placeholder="Author"
           />
         </div>
 
-        <div className="my-4">
-          <label className="text-xl text-gray-500 mr-4">Publish Year</label>
+        <div className="my-3">
+          <label className="text-xl text-black mx-2">Publish Year</label>
           <input
             type="number"
             value={publishYear}
             onChange={(e) => setPublishYear(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-2xl text-xl"
+            placeholder="Publish Year"
           />
-          
+
         </div>
-        <button className=' p-2 bg-sky-300 w-full my-5 hover:bg-sky-500' onClick={handleSaveBook}>
+
+        {/* <div className="my-3">
+          <label className="text-xl text-black mx-2">Description</label>
+          <input
+            type="text"
+            onChange={(e) => setPublishYear(e.target.value)}
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-2xl text-xl"
+            placeholder="Description"
+          />
+
+        </div> */}
+        <button className=' p-2 bg-sky-300 w-full my-5 hover:bg-sky-500 rounded-2xl text-xl font-semibold' onClick={()=>{
+          setShowModel(false);
+          handleSaveBook();
+        }}>
           Save
         </button>
       </div>
