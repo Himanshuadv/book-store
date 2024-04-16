@@ -31,7 +31,7 @@ function home() {
     }).catch((err)=>{
       console.log(err);
     })
-  },[books])
+  },[])
 
   const hanldeClick = () => {
     setShowModel(true);

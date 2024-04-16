@@ -30,7 +30,7 @@ function ShowBook() {
       <h1 className='text-3xl my-4 mx-10'>Show Book</h1>
       {loading?<spinner/>:
         (
-          <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4 mx-10'>
+          <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4 mx-10 overflow-scroll'>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Id</span>
             <span>{book._id}</span>

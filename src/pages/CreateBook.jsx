@@ -20,6 +20,7 @@ function CreateBook({setShowModel}) {
       author,
       publishYear,
     };
+    setLoading(true)
     axios
       .post("http://localhost:8000/books", data)
       .then(() => {
@@ -51,7 +52,7 @@ function CreateBook({setShowModel}) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-[3px] w-full rounded-xl text-lg focus:border-sky-500 focus:border-2"
+            className="border-2 border-gray-500 px-4 py-[3px] w-full rounded-xl text-lg focus:outline-none "
             placeholder="Title"
           />
         </div>
@@ -62,7 +63,7 @@ function CreateBook({setShowModel}) {
             type="text"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full rounded-2xl text-xl"
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-2xl text-xl focus:outline-none"
             placeholder="Author"
           />
         </div>
@@ -73,7 +74,7 @@ function CreateBook({setShowModel}) {
             type="number"
             value={publishYear}
             onChange={(e) => setPublishYear(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full rounded-2xl text-xl"
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-2xl text-lg focus:outline-none"
             placeholder="Publish Year"
           />
 
